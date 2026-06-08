@@ -1,0 +1,38 @@
+
+#include <iostream>
+#include <iomanip>
+
+int main() {
+    double num1, num2, result;
+    char oper;
+    
+    std::cout << "Enter scientific notation equation here: ";
+    std::cin >> num1 >> oper >> num2;
+    
+    switch (oper) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '*':
+            result = num1 * num2;
+            break;
+        case '/':
+            if (num2 != 0) {
+                result = num1 / num2;
+            } else {
+                std::cout << "Error: Division by zero." << std::endl;
+                return 1;
+            }
+            break;
+        default:
+            std::cout << "Error: Invalid operator." << std::endl;
+            return 1;
+    }
+    
+    std::cout << "Result: " << std::scientific << std::setprecision(4) << result << std::endl;
+
+    return 0;
+}
